@@ -64,7 +64,7 @@ func (c *Context) String(code int, format string, value ...interface{}) {
 	c.Status(code)
 	//写入响应体。将字节数组写入响应体中，这是实际返回给客户端的数据部分。
 	//写入响应体时，通常需要先设置状态码和响应头。
-	c.Writer.Write([]byte(fmt.Sprintf(format, value)))
+	c.Writer.Write([]byte(fmt.Sprintf(format, value...)))
 }
 
 // JSON 返回 JSON 格式的响应
